@@ -6,16 +6,15 @@ class Crew {
 
   constructor(name) {
     this.#name = name;
-
     this.#calendar = new December();
   }
 
-  createEntry([hour, minute]) {
-    return {
-      hour,
-      minute,
-      status: null,
-    };
+  setEntry(day, [hour, minute, status]) {
+    this.#calendar.setEntry(day, [hour, minute, status]);
+  }
+
+  get name() {
+    return this.#name;
   }
 }
 
