@@ -18,11 +18,12 @@ describe('December 클래스 단위테스트', () => {
 
     // when
     const days = december.days;
-    const result = days.every((day) => {
-      return Reflect.has(day, 'isHoliday');
-    });
+    // const result = days.every((day) => {
+    //   return Reflect.has(day, 'isHoliday');
+    // });
 
     // then
-    expect(result).toBe(true);
+    days.map((day) => expect(day).toHaveProperty('isHoliday'));
+    //expect(result).toBe(true);
   });
 });
