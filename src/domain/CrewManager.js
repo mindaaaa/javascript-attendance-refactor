@@ -15,6 +15,7 @@ class CrewManager {
 
     for (const { nickname, datetime } of data) {
       const { date, hour, minute } = this.#getDatetime(datetime);
+      // TODO: isHoliday = true면 ERROR
       // TODO: status는 시간에 따라 결정되도록 개선 필요함
       crews
         .find((crew) => crew.name === nickname)
