@@ -12,7 +12,7 @@ const CONSTANT = {
 // 캠퍼스 운영 시간: 8시~23시
 class AttendanceChecker {
   attendOnMonday([hour, minute]) {
-    if (!this.#isCampusOpen) {
+    if (!this.#isCampusOpen()) {
       throw new Error('[ERROR] 운영 시간은 8시~23시입니다.');
     }
 
@@ -28,7 +28,7 @@ class AttendanceChecker {
   }
 
   attend([hour, minute]) {
-    if (!this.#isCampusOpen) {
+    if (!this.#isCampusOpen()) {
       throw new Error('[ERROR] 운영 시간은 8시~23시입니다.');
     }
 
@@ -73,12 +73,3 @@ class AttendanceChecker {
 export default AttendanceChecker;
 
 const checker = new AttendanceChecker();
-console.log(checker.attendOnMonday([13, 5]));
-console.log(checker.attendOnMonday([14, 6]));
-console.log(checker.attendOnMonday([13, 50]));
-
-console.log(checker.attend([10, 5]));
-console.log(checker.attend([11, 6]));
-console.log(checker.attend([10, 20]));
-
-console.log(checker.attend([7, 20]));
